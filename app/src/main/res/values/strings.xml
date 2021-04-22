@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Allegro repos list</string>
+    <string name="list_name">List of Allegro repositories on Github</string>
+    <string name="github_fail">Failed to download the data</string>
+</resources>

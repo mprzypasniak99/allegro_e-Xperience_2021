@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Przeglądarka repozytoriów Allegro</string>
+    <string name="list_name">Lista repozytoriów Allegro na Github</string>
+    <string name="github_fail">Nie udało się pobrać danych</string>
+</resources>
