@@ -1,5 +1,6 @@
 package com.mprzypasniak.allegroGithub
 
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -10,14 +11,15 @@ import com.mprzypasniak.allegroGithub.databinding.ReposListElementBinding
 import org.json.JSONArray
 import org.json.JSONObject
 
-class ReposListAdapter(private val dataSet: JSONArray): RecyclerView.Adapter<ReposListAdapter.RepoHolder>(){
+class ReposListAdapter(private val dataSet: JSONArray):
+    RecyclerView.Adapter<ReposListAdapter.RepoHolder>(){
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepoHolder {
         val elementBinding = ReposListElementBinding.inflate(LayoutInflater.from(parent.context),
             parent, false)
 
-        return RepoHolder(elementBinding)
+        return RepoHolder(elementBinding, parent.context)
     }
 
     override fun getItemCount(): Int {
@@ -30,8 +32,15 @@ class ReposListAdapter(private val dataSet: JSONArray): RecyclerView.Adapter<Rep
         Log.i("Adapter", dataSet[position].toString())
     }
 
-    inner class RepoHolder(private val elemBinding: ReposListElementBinding):
+    inner class RepoHolder(private val elemBinding: ReposListElementBinding,
+    private val parentElement: Context):
         RecyclerView.ViewHolder(elemBinding.root) {
+
+        init {
+            elemBinding.repoRow.setOnClickListener { v: View ->
+                (parentElement as ListElementMediator).onElementClick(adapterPosition)
+            }
+        }
 
         fun bind(repo: JSONObject) {
             elemBinding.repoName.text = repo.getString("name")

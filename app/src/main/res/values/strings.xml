@@ -2,4 +2,13 @@
     <string name="app_name">Allegro repos list</string>
     <string name="list_name">List of Allegro repositories on Github</string>
     <string name="github_fail">Failed to download the data</string>
+    <string-array name="details_etiquetes">
+        <item>Full name</item>
+        <item>Created at</item>
+        <item>Homepage</item>
+        <item>Size</item>
+        <item>Watchers count</item>
+        <item>Programming language</item>
+        <item>Forks count</item>
+    </string-array>
 </resources>

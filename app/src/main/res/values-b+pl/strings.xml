@@ -3,4 +3,13 @@
     <string name="app_name">Przeglądarka repozytoriów Allegro</string>
     <string name="list_name">Lista repozytoriów Allegro na Github</string>
     <string name="github_fail">Nie udało się pobrać danych</string>
+    <string-array name="details_etiquetes">
+        <item>Pełna nazwa</item>
+        <item>Data utworzenia</item>
+        <item>Strona projektu</item>
+        <item>Rozmiar</item>
+        <item>Liczba obserwujących</item>
+        <item>Język programowania</item>
+        <item>Liczba forków</item>
+    </string-array>
 </resources>
