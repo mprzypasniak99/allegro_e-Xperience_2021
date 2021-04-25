@@ -12,4 +12,5 @@
         <item>Język programowania</item>
         <item>Liczba forków</item>
     </string-array>
+    <string name="retry_text">Odśwież</string>
 </resources>

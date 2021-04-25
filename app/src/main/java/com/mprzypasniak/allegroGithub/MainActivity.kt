@@ -30,6 +30,13 @@ class MainActivity : AppCompatActivity(), ListElementMediator {
 
         adapter = ReposListAdapter(data) // adapter for a RecyclerView
 
+        binding.retryButton.setOnClickListener { v: View ->
+            binding.progressBar.visibility = View.VISIBLE
+            getGithubData(binding)
+            /* in case there's no internet connection at the moment,
+             user can try to refresh the list */
+        }
+
         binding.listBody.layoutManager = LinearLayoutManager(this)
         binding.listBody.itemAnimator = DefaultItemAnimator()
         binding.listBody.adapter = adapter
@@ -48,6 +55,7 @@ class MainActivity : AppCompatActivity(), ListElementMediator {
                     data.put(response[i])
                 }
                 binding.progressBar.visibility = View.GONE // hide progress bar
+                binding.retryButton.visibility = View.GONE // hide retry button
                 binding.listBody.visibility = View.VISIBLE // show list of repositories
 
                 adapter.notifyDataSetChanged() // notify RecyclerView that data has been changed
@@ -57,6 +65,7 @@ class MainActivity : AppCompatActivity(), ListElementMediator {
             Response.ErrorListener { error ->
                 Toast.makeText(this, R.string.github_fail, Toast.LENGTH_LONG).show()
                 binding.progressBar.visibility = View.INVISIBLE
+                binding.retryButton.visibility = View.VISIBLE
                 Log.i("Github_API", error.toString())
             }) {
             override fun parseNetworkResponse(response: NetworkResponse?): Response<JSONArray> {

@@ -11,4 +11,5 @@
         <item>Programming language</item>
         <item>Forks count</item>
     </string-array>
+    <string name="retry_text">Refresh</string>
 </resources>
